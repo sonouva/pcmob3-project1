@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, ScrollView, FlatList } from "react-native";
+import { StyleSheet, Text, ScrollView, View, FlatList } from "react-native";
 const names = [
   "Aaran",
   "Aaren",
@@ -2751,9 +2751,24 @@ const namesAsObjects = names.map((item, index) => {
 export default function App() {
   console.log(namesAsObjects[0]);
 
-  function renderName({ item }) {
-    return <Text>{item.name}</Text>;
-  }
+  const renderName = ({ item }) => (
+    <View
+      style={{
+        padding: 20,
+        margin: 10,
+        backgroundColor: "lightblue",
+        borderBottomColor: "#999",
+        borderBottomWidth: 1,
+        shadowColor: "black",
+        shadowRadius: 5,
+        shadowOpacity: 0.2,
+        shadowOffset: { x: 0, height: 3 },
+        alignItems: "center",
+      }}
+    >
+      <Text>{item.name}</Text>
+    </View>
+  );
 
   return <FlatList data={namesAsObjects} renderItem={renderName} />;
 }
